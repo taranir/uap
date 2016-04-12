@@ -1,0 +1,114 @@
+
+container: {
+
+},
+rightHeaderButtonsWrapper: {
+	margin: '10px 0px',
+},
+buttonWrapper: {
+	float: 'left',
+	width: 'calc((100% / 2) - 4% - 2px)',
+	margin: '0px 2%',
+	padding: '2px 0px',
+	border: '1px solid #444',
+	borderRadius: '2px',
+	textAlign: 'center',
+	fontSize: '12px',
+	':active': {
+		transform: 'translateY(1px)',
+	},
+},
+readerLeft: {
+	padding: '10px 15px',
+	width: 'calc(150px - 20px)',
+	position: 'absolute',
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		display: 'none',
+	},
+},
+
+readerContent: {
+	marginLeft: '150px',
+	position: 'relative',
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		marginLeft: '0px',
+	}
+},
+centerBar: {
+	overflow: 'hidden',
+	backgroundColor: 'white',
+	width: '60%',
+	minHeight: 'calc(100vh - ' + globalStyles.headerHeight + ' + 3px)',
+	position: 'relative',
+	top: '-3px',
+	float: 'left',
+	boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.4)',
+	zIndex: 2,
+	// Mobile
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		width: '100%',
+		height: 'auto',
+		position: 'relative',
+		float: 'none',
+		zIndex: 'auto',
+		top: 0,
+	},
+},
+
+rightBar: {
+	float: 'left',
+	width: '36%',
+	padding: '0px 2%',
+	position: 'relative',
+	// To make discussions only as long as the pub:
+	// position: 'absolute',
+	// right: 0,
+	// height: '100%',
+	// overflow: 'hidden',
+
+	// Mobile
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		display: 'none',
+	}
+},
+
+versionNotification: {
+	textAlign: 'center',
+	backgroundColor: globalStyles.sideBackground,
+	padding: '5px 20px',
+	margin: 5,
+	fontFamily: globalStyles.headerFont,
+	color: globalStyles.sideText,
+	userSelect: 'none',
+	':hover': {
+		color: globalStyles.sideHover,
+		cursor: 'pointer',
+	},
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		fontSize: '20px',
+	},
+
+},
+
+unpublishedNotification: {
+	textAlign: 'center',
+	backgroundColor: globalStyles.headerBackground,
+	padding: '5px 20px',
+	margin: 5,
+	fontFamily: globalStyles.headerFont,
+	color: globalStyles.headerText,
+	userSelect: 'none',
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		fontSize: '20px',
+	},
+},
+versionNotificationLink: {
+	textDecoration: 'none',
+},
+mobileOnly: {
+	display: 'none',
+	'@media screen and (min-resolution: 3dppx), screen and (max-width: 767px)': {
+		display: 'block',
+	},
+}
+
