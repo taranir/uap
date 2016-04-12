@@ -97,6 +97,7 @@
     "dateformat": "^1.0.12",
     "electron-debug": "^0.5.2",
     "font-awesome": "^4.5.0",
+    "immutable": "^3.7.5",
     "lodash": "^3.10.1",
     "markdown-it": "^5.1.0",
     "markdown-it-abbr": "^1.0.3",
