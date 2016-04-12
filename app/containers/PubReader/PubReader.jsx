@@ -19,8 +19,7 @@ import PubReaderLeftBar from './PubReaderLeftBar';
 import PubReaderNav from './PubReaderNav';
 //import {Discussions} from 'containers';
 
-import globalStyles from 'utils/styleConstants';
-import pubSizes from 'utils/styleConstants';
+import {globalStyles, pubSizes} from 'utils/styleConstants';
 
 // import {globalMessages} from 'utils/globalMessages';
 import {generateTOC} from 'utils/generateTOC';
@@ -29,6 +28,10 @@ import {FormattedMessage} from 'react-intl';
 import samplePubData from './sample_pub_data.json';
 
 let styles = {};
+
+console.log("globalStyles", globalStyles);
+console.log("pubSizes", pubSizes);
+console.log("samplePubData", samplePubData);
 
 const PubReader = React.createClass({
 	propTypes: {
