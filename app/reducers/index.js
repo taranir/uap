@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { routerReducer as routing } from 'react-router-redux';
+import { routerStateReducer as routing } from 'redux-router';
 import autocomplete from './../containers/Autocomplete/reducer';
 import pub from './../containers/PubReader/reducer';
+
+import Immutable from 'immutable';
 
 const rootReducer = combineReducers({
   routing,
