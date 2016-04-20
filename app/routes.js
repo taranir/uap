@@ -6,11 +6,10 @@ import PubReader from './containers/PubReader/PubReader';
 
 
 
-export default () => {
-	return (
-		<Route path="/" component={App}>
-			<IndexRoute component={HomePage} />
-			<Route path="/pubreader" component={PubReader} />
-		</Route>
-	);
-}
+export default (
+    <Route path="/" component={App}>
+      <IndexRoute component={HomePage} />
+      <Route path="/pubreader" component={PubReader} />
+    </Route>
+);
+

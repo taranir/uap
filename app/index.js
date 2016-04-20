@@ -2,16 +2,19 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { reduxReactRouter, ReduxRouter } from 'redux-router';
-import getRoutes from './routes';
+import routes from './routes';
 import configureStore from './store/configureStore';
 import './app.global.css';
 
-const store = configureStore();
-// const history = syncHistoryWithStore(hashHistory, store);
 
+const store = configureStore();
+
+console.log("routes", routes);
 render(
-  <Provider store={store}>
-    <ReduxRouter routes={getRoutes()} />
-  </Provider>,
+  <div>
+    <Provider store={store}>
+      <ReduxRouter routes={routes}  />
+    </Provider>
+  </div>,
   document.getElementById('root')
 );

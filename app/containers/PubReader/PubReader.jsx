@@ -29,10 +29,6 @@ import samplePubData from './sample_pub_data.json';
 
 let styles = {};
 
-console.log("globalStyles", globalStyles);
-console.log("pubSizes", pubSizes);
-console.log("samplePubData", samplePubData);
-
 const PubReader = React.createClass({
 	propTypes: {
 		readerData: PropTypes.object,

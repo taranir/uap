@@ -32,3 +32,20 @@ node_modules
 # App packaged
 dist
 release
+
+.idea/
+node_modules/
+authentication/
+dist/
+data/
+tmp/
+misc/
+*.iml
+
+stats.json
+webpack-stats.json
+npm-debug.log
+.DS_Store
+translations/messages
+api/config.js
+
