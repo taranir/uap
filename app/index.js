@@ -9,11 +9,10 @@ import './app.global.css';
 
 const store = configureStore();
 
-console.log("routes", routes);
 render(
   <div>
     <Provider store={store}>
-      <ReduxRouter routes={routes}  />
+      <ReduxRouter routes={routes} />
     </Provider>
   </div>,
   document.getElementById('root')

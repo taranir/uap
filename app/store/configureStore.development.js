@@ -8,7 +8,7 @@ import { reduxReactRouter } from 'redux-router';
 import reducer from '../reducers';
 
 import routes from '../routes';
-import _createHistory from 'history/lib/createBrowserHistory';
+import _createHistory from 'history/lib/createHashHistory';
 //import createHistory from "history/lib/createHashHistory";
 import useStandardScroll from 'scroll-behavior/lib/useStandardScroll';
 
@@ -27,7 +27,7 @@ finalCreateStore = compose(
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
   )(createStore);
-console.log("createHistory", createHistory);
+console.log("routes in configureStore", routes);
 finalCreateStore = reduxReactRouter({ routes, createHistory:_createHistory })(finalCreateStore);
 const store = finalCreateStore(reducer, window.__INITIAL_STATE__);
 if (module.hot) {
