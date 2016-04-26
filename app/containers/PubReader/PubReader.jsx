@@ -255,7 +255,6 @@ const PubReader = React.createClass({
 
 				<div className="reader-content" style={styles.readerContent}>
 					{
-
 						<div>
 							<div className="centerBar pubScrollContainer" style={[styles.centerBar]}>
 
@@ -373,7 +372,6 @@ const PubReader = React.createClass({
 // const rightBar = document.getElementsByClassname('rightBar')[0];
 // if (rightBar.scrollheight > rightBar.clientHeight)
 export default connect( state => {
-	console.log("laskjdlfjalsjdflajsdf ", state);
 	return {
 		readerData: state.pub,
 		loginData: state.login,

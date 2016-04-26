@@ -5,9 +5,6 @@ import HomePage from './containers/HomePage';
 import PubReader from './containers/PubReader/PubReader';
 
 
-// import createHashHistory from 'history/lib/createHashHistory';
-
-// const history = createHashHistory();
 
 export default (
     <Route path="/" component={App}>

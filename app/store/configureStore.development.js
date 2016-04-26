@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { createStore, applyMiddleware, compose } from 'redux';
 // import { persistState } from 'redux-devtools';
 // import DevTools from '../containers/DevTools';
@@ -118,14 +119,13 @@ import DevTools from '../containers/DevTools';
 import routes from '../routes';
 import createHistory from 'history/lib/createHashHistory';
 
-console.log("1");
 
 const logger = createLogger({
   level: 'info',
   collapsed: true,
 });
 
-console.log("2");
+
 
 // const router = routerMiddleware(hashHistory);
 
@@ -144,7 +144,6 @@ const enhancer = compose(
   )
 )(createStore);
 
-console.log("3");
 
 export default function configureStore(initialState) {
   // const store = createStore(rootReducer, initialState, enhancer);
