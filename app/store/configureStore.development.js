@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // import { createStore, applyMiddleware, compose } from 'redux';
 // import { persistState } from 'redux-devtools';
 // import DevTools from '../containers/DevTools';
