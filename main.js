@@ -202,6 +202,15 @@ app.on('ready', () => {
           mainWindow.restart();
         }
       }, {
+        label: '&Back',
+        accelerator: 'Ctrl+B',
+        click() {
+          console.log("back");
+          if (mainWindow.webContents.canGoBack()) {
+            mainWindow.webContents.goBack();
+          }
+        }
+      }, {
         label: 'Toggle &Full Screen',
         accelerator: 'F11',
         click() {

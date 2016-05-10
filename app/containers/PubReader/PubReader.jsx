@@ -38,7 +38,7 @@ const PubReader = React.createClass({
 		query: PropTypes.object, // version: integer
 		meta: PropTypes.string,
 		metaID: PropTypes.string,
-		inviteStatus: PropTypes.string,
+		// inviteStatus: PropTypes.string,
 		dispatch: PropTypes.func
 	},
 
@@ -67,7 +67,7 @@ const PubReader = React.createClass({
 	},
 
 	componentWillMount() {
-
+		debugger
 		const versionIndex = this.props.query.version !== undefined ? this.props.query.version - 1 : this.props.readerData.getIn(['pubData', 'history']).size - 1;
 
 		const inputMD = this.props.readerData.getIn(['pubData', 'history', versionIndex, 'markdown']) || '';
@@ -372,6 +372,7 @@ const PubReader = React.createClass({
 // const rightBar = document.getElementsByClassname('rightBar')[0];
 // if (rightBar.scrollheight > rightBar.clientHeight)
 export default connect( state => {
+	debugger
 	return {
 		readerData: state.pub,
 		loginData: state.login,
@@ -380,8 +381,8 @@ export default connect( state => {
 		query: state.router.location.query,
 
 		meta: state.router.params.meta,
-		metaID: state.router.params.metaID,
-		inviteStatus: state.user.get('inviteStatus')
+		metaID: state.router.params.metaID
+		//inviteStatus: state.user.get('inviteStatus')
 	};
 })( Radium(PubReader) );
 
