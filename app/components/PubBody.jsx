@@ -12,22 +12,25 @@ import {parsePluginString} from 'utils/parsePlugins';
 
 import {FormattedMessage} from 'react-intl';
 
+import samplePubData from 'sample_pub_data';
+
+
 let styles = {};
 
 const PubBody = React.createClass({
 	propTypes: {
-		status: PropTypes.string,
+		status: PropTypes.string, //opacity 0 or 1
 		isPublished: PropTypes.bool,
-		isPage: PropTypes.bool,
-		markdown: PropTypes.string,
-		addSelectionHandler: PropTypes.func,
-		styleScoped: PropTypes.string,
-		showPubHighlights: PropTypes.bool,
-		isFeatured: PropTypes.bool,
-		errorView: PropTypes.bool,
-		minFont: PropTypes.number,
-		maxFont: PropTypes.number,
-		showPubHighlightsComments: PropTypes.bool,
+		isPage: PropTypes.bool, //ignore
+		// markdown: PropTypes.string, //should only need this - take out of props, use this.state.markdown
+		addSelectionHandler: PropTypes.func, //selections for making comments
+		styleScoped: PropTypes.string, //custom css
+		showPubHighlights: PropTypes.bool, //false
+		isFeatured: PropTypes.bool, //true
+		errorView: PropTypes.bool, //whether there was error loading it
+		minFont: PropTypes.number, //ignore
+		maxFont: PropTypes.number, //ignore
+		showPubHighlightsComments: PropTypes.bool, //ignore - false
 	},
 	getDefaultProps: function() {
 		return {
@@ -39,7 +42,12 @@ const PubBody = React.createClass({
 		};
 	},
 
-	componentDidMount() {
+	componentDidMount() { // set this.state.markdown
+		// request.get('/api/getJournalPubs').end((err, response)=>{
+		// 	this.setState({markdown: response.body});
+		// });
+		console.log(samplePubData);
+		this.setState({markdown: samplePubData.markdown});
 		document.getElementById('dynamicStyle').innerHTML = this.props.styleScoped;
 	},
 
@@ -115,8 +123,8 @@ const PubBody = React.createClass({
 
 	render: function() {
 
-		const footnotes = (this.props.markdown) ? this.findFootnotes(this.props.markdown) : [];
-		const sortedReferences = (this.props.markdown) ? this.findReferences(this.props.markdown) : [];
+		const footnotes = (this.state.markdown) ? this.findFootnotes(this.state.markdown) : [];
+		const sortedReferences = (this.state.markdown) ? this.findReferences(this.state.markdown) : [];
 		// const sortedReferences = this.props.references.sort((refA, refB) => { return indexedCitations[refA.refName] - indexedCitations[refB.refName]; } );
 
 		return (
@@ -154,7 +162,7 @@ const PubBody = React.createClass({
 						*/}
 
 						<div id="pubBodyContent"> {/* Highlights are dependent on the id 'pubBodyContent' */}
-							<Markdown markdown={this.props.markdown} isPage={this.props.isPage}/>
+							<Markdown markdown={this.state.markdown} isPage={this.props.isPage}/>
 
 							{this.props.addSelectionHandler
 								? <SelectionPopup addSelectionHandler={this.props.addSelectionHandler}/>

@@ -123,6 +123,7 @@
     "react-textarea-autosize": "^3.3.0",
     "redux": "^3.0.4",
     "redux-router": "1.0.0-beta5",
+    "request": "^2.65.0",
     "sanitize-html": "^1.11.3",
     "scroll-behavior": "^0.3.0",
     "shallowequal": "0.2.2",
