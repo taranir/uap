@@ -26,6 +26,7 @@ export function complete(autocompleteKey, route, string) {
 			autocompleteKey: autocompleteKey
 		};
 	}
+	console.log("route: ", route);
 	return {
 		types: [AUTOCOMPLETE_LOAD, AUTOCOMPLETE_SUCCESS, AUTOCOMPLETE_FAIL],
 		autocompleteKey: autocompleteKey,

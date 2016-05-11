@@ -10,6 +10,7 @@ const store = configureStore();
 
 render(
   <div>
+  	<div>Navbar</div>
     <Provider store={store} >
       <ReduxRouter />
     </Provider>

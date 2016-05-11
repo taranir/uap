@@ -6,7 +6,10 @@ import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 import routes from '../routes';
 import createHistory from 'history/lib/createHashHistory';
+import ApiClient from 'helpers/ApiClient';
 
+import createMiddleware from 'middleware/clientMiddleware';
+import transitionMiddleware from 'middleware/transitionMiddleware';
 
 const logger = createLogger({
   level: 'info',
@@ -18,9 +21,11 @@ const logger = createLogger({
 // const router = routerMiddleware(hashHistory);
 
 // const routerStateSelector = state => state.get('router');
+const client = new ApiClient();
+const middleware = [createMiddleware(client), transitionMiddleware, logger];
 
 const enhancer = compose(
-  applyMiddleware(logger),
+  applyMiddleware(...middleware),
   // window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
   reduxReactRouter({
     routes,

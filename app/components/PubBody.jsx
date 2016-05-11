@@ -24,7 +24,7 @@ const PubBody = React.createClass({
 		isPage: PropTypes.bool, //ignore
 		// markdown: PropTypes.string, //should only need this - take out of props, use this.state.markdown
 		addSelectionHandler: PropTypes.func, //selections for making comments
-		styleScoped: PropTypes.string, //custom css
+		// styleScoped: PropTypes.string, //custom css
 		showPubHighlights: PropTypes.bool, //false
 		isFeatured: PropTypes.bool, //true
 		errorView: PropTypes.bool, //whether there was error loading it
@@ -48,21 +48,20 @@ const PubBody = React.createClass({
 		// });
 		console.log(samplePubData);
 		this.setState({markdown: samplePubData.markdown});
-		document.getElementById('dynamicStyle').innerHTML = this.props.styleScoped;
+		this.setState({styleScoped: samplePubData.styleScoped});
+		document.getElementById('dynamicStyle').innerHTML = this.state.styleScoped;
 	},
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.styleScoped !== nextProps.styleScoped) {
-			document.getElementById('dynamicStyle').innerHTML = nextProps.styleScoped;
-		}
-		if (!nextProps.styleScoped) {
-			document.getElementById('dynamicStyle').innerHTML = '';
-		}
+		// if (this.props.styleScoped !== nextProps.styleScoped) {
+		// 	document.getElementById('dynamicStyle').innerHTML = nextProps.styleScoped;
+		// }
+		// if (!nextProps.styleScoped) {
+		// 	document.getElementById('dynamicStyle').innerHTML = '';
+		// }
 	},
 
 	compileStyleRules: function() {
-
-
 		return ({
 			// ...defaultContentRules,
 			// ...pubContentRules,
@@ -141,11 +140,6 @@ const PubBody = React.createClass({
 
 				<div id={this.props.isPage ? 'pageContent' : 'pubContent'} style={[styles.contentContainer, globalStyles[this.props.status]]} >
 					<div id="pub-wrapper">
-						{!this.props.isFeatured && !this.props.errorView && !this.props.isPage
-							? <div style={styles.submittedNotification}>This Pub has been submitted to - but is not yet featured in - this journal.</div>
-							: null
-						}
-
 						{
 							/* this.props.firstPublishedDate !== this.props.lastPublishedDate
 							? <div id={'pub-dates'}>
