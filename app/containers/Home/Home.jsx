@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
 import Radium, {Style} from 'radium';
 import { Link } from 'react-router';
 import {globalStyles} from 'utils/styleConstants';
 import Autocomplete from 'containers/Autocomplete/Autocomplete';
+import {offlineOn, offlineOff} from './actions';
 const HoverLink = Radium(Link);
 let styles = {};
 
 const Home = React.createClass({
-  propTypes: {},
+  propTypes: {
+    offlineMode: PropTypes.bool,
+    dispatch: PropTypes.func
+  },
 
   renderLandingSearchResults: function(results) {
     return (
@@ -40,6 +45,16 @@ const Home = React.createClass({
     );
   },
 
+  toggleOfflineMode: function() {
+    if (this.props.offlineMode) {
+      console.log("dispatch off");
+      this.props.dispatch(offlineOff);
+    } else {
+      console.log("dispatch on");
+      this.props.dispatch(offlineOn);
+    }
+  },
+
   render: function() {
     return (
       <div style={styles.container}>
@@ -47,7 +62,7 @@ const Home = React.createClass({
           <h1 style={styles.topPub}>PubPub</h1>
           <div style={styles.subheader}>DESKTOP</div>
         <button key="ShowMeScience" style={styles.button}><Link to={'/pubreader'} style={styles.buttonText}>Show Me Science</Link></button>
-        <button key="OfflineMode" style={styles.button}><Link to={'/pubreader'} style={styles.buttonText}>Offline Mode</Link></button>
+        <button key="OfflineMode" style={styles.button} onClick={this.toggleOfflineMode}>Offline Mode</button>
         </div>
         
         <div style={styles.search}>
@@ -71,6 +86,11 @@ const Home = React.createClass({
     );
   }
 });
+
+export default connect( state => {
+  return {offlineMode: state.home.offlineMode};
+})( Radium(Home) );
+
 
 styles = {
   container: {
@@ -199,6 +219,4 @@ styles = {
     borderTop: '1px solid #DDD',
   }
 };
-
-export default Radium(Home);
 

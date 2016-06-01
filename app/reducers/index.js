@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { routerStateReducer } from 'redux-router';
 
 import autocomplete from './../containers/Autocomplete/reducer';
+import home from './../containers/Home/reducer';
 //import pub from './../containers/PubReader/reducer';
 
 import Immutable from 'immutable';
@@ -10,7 +11,8 @@ export default rootReducer;
 
 const rootReducer = combineReducers({
   router: routerStateReducer,
-  autocomplete
+  autocomplete,
+  home
 });
 
 export function ensureImmutable(state) {
